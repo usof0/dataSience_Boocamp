@@ -14,3 +14,4 @@ if __name__ == "__main__":
     data_types()
 else:
     print("function not found!")
+    
