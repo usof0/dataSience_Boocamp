@@ -4,6 +4,7 @@ import os
 class Research:
     def __init__(self, file_path):
         self.file_path = file_path
+        self.Calculations = self.Calculations()
 
     def has_header(self):
         if not os.path.exists(self.file_path):
@@ -34,14 +35,12 @@ class Research:
         return data
     
     class Calculations:
-        @staticmethod
-        def counts(data):
+        def counts(self,data):
             heads = sum(row[0] for row in data)
             tails = sum(row[1] for row in data)
             return heads, tails
         
-        @staticmethod
-        def fractions(heads, tails):
+        def fractions(self, heads, tails):
             total = heads + tails
             if total == 0:
                 return 0, 0
