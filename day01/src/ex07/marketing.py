@@ -44,23 +44,25 @@ def main():
         'jessica@gmail.com',
         'john@snow.is'
     ]
+    try:
+        if len(sys.argv) != 2:
+            raise ValueError('Invalid number of arguments')
+        
+        task_name = sys.argv[1]
 
-    if len(sys.argv) != 2:
-        raise ValueError('Invalid number of arguments')
-    
-    task_name = sys.argv[1]
-
-    if task_name == 'call_center':
-        result = call_center(clients, recipients)
-    elif task_name == 'potential_clients':
-        result = potential_clients(clients, participants)
-    elif task_name == 'loyalty_program':
-        result = loyalty_program(clients, participants)
-    else:
-        raise ValueError('Invalid task name. Valid options: call_center, potential_clients, loyalty_program')
-    
-    for email in result:
-        print(email)
+        if task_name == 'call_center':
+            result = call_center(clients, recipients)
+        elif task_name == 'potential_clients':
+            result = potential_clients(clients, participants)
+        elif task_name == 'loyalty_program':
+            result = loyalty_program(clients, participants)
+        else:
+            raise ValueError('Invalid task name. Valid options: call_center, potential_clients, loyalty_program')
+        
+        for email in result:
+            print(email)
+    except Exception as e:
+        print(f'Error: {str(e)}')
 
 if __name__ == "__main__":
     main()
