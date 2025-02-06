@@ -2,18 +2,18 @@ import sys
 import os
 
 class Research:
-    def __init__(self, file_name):
-        self.file_name = file_name
+    def __init__(self, file_path):
+        self.file_path = file_path
 
     def file_reader(self):
-        if not os.path.exists(self.file_name):
-            raise FileNotFoundError(f"File '{self.file_name}' does not exist.")
+        if not os.path.exists(self.file_path):
+            raise FileNotFoundError(f"File '{self.file_path}' does not exist.")
         
-        with open(self.file_name, 'r', encoding='utf-8') as file:
+        with open(self.file_path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
 
         if len(lines) < 1:
-            raise ValueError(f"File '{self.file_name}' is empty.")
+            raise ValueError(f"File '{self.file_path}' is empty.")
         
         header = lines[0].strip().split(',')
         if len(header) < 2 or header != ['head', 'tail']:
