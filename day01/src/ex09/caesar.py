@@ -26,20 +26,23 @@ def caesar_cipher(text, shift, operation):
     return ''.join(result)
     
 def main():
-    if len(sys.argv) != 4:
-        raise ValueError("Usage: python3 caesar.py <encode|decode> <text> <shift>")
-    operation = sys.argv[1]
-    text = sys.argv[2]
-    shift = int(sys.argv[3])
+    try:
+        if len(sys.argv) != 4:
+            raise ValueError("Usage: python3 caesar.py <encode|decode> <text> <shift>")
+        operation = sys.argv[1]
+        text = sys.argv[2]
+        shift = int(sys.argv[3])
 
-    if operation not in ['encode', 'decode']:
-        raise ValueError("Invalid operation. Use 'encode' or 'decode'")
-    
-    if contains_cyrillic(text):
-        raise ValueError("The script does not support this language.")
-    
-    result = caesar_cipher(text, shift, operation)
-    print(result)
+        if operation not in ['encode', 'decode']:
+            raise ValueError("Invalid operation. Use 'encode' or 'decode'")
+        
+        if contains_cyrillic(text):
+            raise ValueError("The script does not support this language.")
+        
+        result = caesar_cipher(text, shift, operation)
+        print(result)
+    except Exception as e:
+        print(f"Error: {e}")
 
 if __name__ == "__main__":
     main()
