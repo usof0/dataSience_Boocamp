@@ -25,7 +25,7 @@ def main():
             tails = tails,
             tail_fraction = tail_fraction,
             head_fraction = head_fraction,
-            predictions = len(predictions),
+            predictions = NUM_OF_STEPS,
             predicted_heads = predicted_heads,
             predicted_tails = predicted_tails
         )
