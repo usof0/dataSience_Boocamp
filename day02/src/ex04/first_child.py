@@ -1,5 +1,4 @@
 import sys
-import os
 import random
 
 class Research:
@@ -9,14 +8,15 @@ class Research:
         self.Analytics = self.Analytics(self.data)
 
     def has_header(self):
-        if not os.path.exists(self.file_path):
+        try:
+            with open(self.file_path, 'r') as file:
+                first_line = file.readline()
+            if first_line.strip().split(',') == ['head', 'tail']:
+                return True
+            else:
+                return False
+        except FileNotFoundError:
             raise FileNotFoundError(f"File {self.file_path} does not exist")
-        with open(self.file_path, 'r') as file:
-            first_line = file.readline()
-        if first_line.strip().split(',') == ['head', 'tail']:
-            return True
-        else:
-            return False
         
     def file_reader(self, has_header=True):
         with open(self.file_path, 'r') as file:
