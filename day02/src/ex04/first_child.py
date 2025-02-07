@@ -1,5 +1,5 @@
 import sys
-import random
+from random import randint
 
 class Research:
     def __init__(self, file_path):
@@ -57,7 +57,7 @@ class Research:
         def predict_random(self, num_predictions):
             predictions = []
             for _ in range(num_predictions):
-                prediction = random.randint(0, 1)
+                prediction = randint(0, 1)
                 predictions.append([prediction, 1 - prediction])
             return predictions
         
