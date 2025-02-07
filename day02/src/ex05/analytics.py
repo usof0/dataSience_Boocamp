@@ -11,7 +11,7 @@ class Research:
 
     def has_header(self):
         try:
-            with open(self.file_path, 'r') as file:
+            with open(self.file_path, 'r', encoding='utf-8') as file:
                 first_line = file.readline()
             if first_line.strip().split(',') == ['head', 'tail']:
                 return True
@@ -25,7 +25,7 @@ class Research:
             lines = file.readlines()
 
         if len(lines) < 1:
-            raise ValueError(FILE_EMPTY_ERROR)
+            raise ValueError("File is empty.")
         
         start_index = 1 if has_header else 0
         data = []
@@ -66,26 +66,6 @@ class Research:
         def predict_last(self):
             return self.data[-1]
 
-        
-def main():
-    try:
-        if len(sys.argv) != 2:
-            raise ValueError(VALUE_ERROR_MESSAGE)
-        file_path = sys.argv[1]
-        research = Research(file_path)
-        has_header = research.has_header()
-        data = research.file_reader(has_header)
-        heads, tails = research.Analytics.counts(data)
-        head_fraction, tail_fraction = research.Analytics.fractions(heads, tails)
-        predictions = research.Analytics.predict_random(NUM_OF_STEPS)
-        last = research.Analytics.predict_last()
-
-        print(data)
-        print(heads, tails)
-        print(head_fraction, tail_fraction)
-        print(predictions)
-        print(last)
-
-    except Exception as e:
-        print(f"Error: {e}")
-
+        def save_file(self, data, file_path):
+            with open(file_path, 'w', encoding='utf-8') as file:
+                file.write(data)
