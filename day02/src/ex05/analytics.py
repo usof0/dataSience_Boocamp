@@ -1,7 +1,4 @@
-import sys
 from random import randint
-
-from config import *
 
 class Research:
     def __init__(self, file_path):
