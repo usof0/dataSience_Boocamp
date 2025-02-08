@@ -10,8 +10,7 @@ def main():
 
         research = Research(file_path)
 
-        has_header = research.has_header()
-        data = research.file_reader(has_header)
+        data = research.data
         heads, tails = research.Analytics.counts(data)
         head_fraction, tail_fraction = research.Analytics.fractions(heads, tails)
         
