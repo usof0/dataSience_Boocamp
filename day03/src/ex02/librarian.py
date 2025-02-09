@@ -22,8 +22,8 @@ def list_installed_libraries():
         f.write(result.stdout)
 
 def archive_venv():
-    venv_path = os.path.dirname(sys.executable)
-    archive_name = "venv_archive"
+    venv_path = os.path.dirname(os.path.dirname(sys.executable))
+    archive_name = "usof"
     shutil.make_archive(archive_name, 'zip', venv_path)
     
 def main():
