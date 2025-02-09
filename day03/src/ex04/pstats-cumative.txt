@@ -1,0 +1,15 @@
+Mon Feb 10 02:11:59 2025    profile_stats
+
+         765731 function calls (741927 primitive calls) in 2.772 seconds
+
+   Ordered by: cumulative time
+   List reduced from 2235 to 5 due to restriction <5>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    303/1    0.004    0.000    2.773    2.773 {built-in method builtins.exec}
+        1    0.000    0.000    2.773    2.773 financial_enhanced.py:1(<module>)
+        1    0.000    0.000    2.103    2.103 financial_enhanced.py:35(main)
+        1    0.000    0.000    2.103    2.103 financial_enhanced.py:6(get_financial_data)
+        1    0.000    0.000    1.943    1.943 /mnt/d/school_21/projects/dataSience/dataSience_Boocamp/day03/src/ex00/usof/lib/python3.10/site-packages/httpx/_api.py:174(get)
+
+
