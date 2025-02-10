@@ -4,7 +4,7 @@ import subprocess
 import shutil
 
 def check_venv():
-    if os.environ['NAME'] != 'usof':
+    if os.environ['VIRTUAL_ENV'][-8:] != 'usof':
         raise Exception("This script must be run inside 'usof' virtual environment.")
     
 def install_libraries():
