@@ -12,6 +12,9 @@ def reduce_function(num):
     return reduce(lambda res, i: res + i**2, range(1, num + 1), 0)
 
 def main():
+    setup = """
+from __main__ import loop_function, reduce_function
+    """
     try:
         if len(sys.argv) != 4:
             raise ValueError("Usage: python3 benchmark.py <function> <number_of_calls> <number_for_sum>")
@@ -26,7 +29,7 @@ def main():
         else:
             raise ValueError("Invalid function name")
         
-        run_time = timeit.timeit(stmt=stmt, globals=globals(), number=num_of_calls)
+        run_time = timeit.timeit(setup=setup, stmt=stmt, number=num_of_calls)
         
         print(run_time)
     except Exception as e:
